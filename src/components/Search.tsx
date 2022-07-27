@@ -1,10 +1,10 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import SearchIcon from "../assets/search.svg"
 
-export default function Search() {
+export default function Search({search}: {search: ChangeEventHandler<HTMLInputElement>}) {
     return (
     <div className="SearchBack">
-        <input className="SearchInput" placeholder="type something..."></input>
+        <input id="searchInput" className="SearchInput" placeholder="type something..." onChange={search}></input>
         <button type="button" className="SearchButton">
             <img src={SearchIcon} alt="" className="SearchIcon"></img>
         

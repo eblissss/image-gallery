@@ -1,18 +1,11 @@
 import React from 'react'
 import Masonry from 'react-masonry-css'
 import Image from './Image'
+import { imageData } from '../App'
 
-const images = [
-    "https://i.imgur.com/oFDSSZK.jpeg",
-    "https://i.imgur.com/bvIEbDP.jpeg",
-    "https://i.imgur.com/Nd0ZZRb.jpeg",
-    "https://i.imgur.com/9qsDEqs.jpeg",
-    "https://i.imgur.com/rZMEo0u.jpeg",
-    "https://i.imgur.com/0ogkTp7.jpeg",
-    "https://i.imgur.com/humqenh.png"
-]
+// Currently breaks with exactly 2 images
 
-export default function Grid() {
+export default function Grid({images}: {images: imageData[]}) {
 
   return (
     <Masonry
@@ -20,7 +13,7 @@ export default function Grid() {
         className="image-grid"
         columnClassName="image-grid-col"
     >
-        {images.map((img) => (<Image image={img}></Image>))}
+        {images.map((img) => (<Image image={img} key={img.link}></Image>))}
     </Masonry>
   )
 }
